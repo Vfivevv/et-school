@@ -10,8 +10,11 @@ import { type Logger } from "~/libs/modules/logger/logger.js";
 import {
 	type EventGetByIdRequestDto,
 	type EventService,
+	type EventUpdateUserRequestDto,
+	type EventUserListRequestQueryDto,
 	EventsApiPath,
 } from "./events.js";
+import { type PaginationRequestDto } from "./libs/types/types.js";
 import { eventParametersValidationSchema } from "./libs/validation-schemas/validation-schemas.js";
 
 class EventController extends BaseController {
@@ -23,11 +26,21 @@ class EventController extends BaseController {
 		this.eventService = eventService;
 
 		this.addRoute({
-			handler: () => {
-				return this.findAll();
+			handler: (options) => {
+				return this.findAll(
+					options as APIHandlerOptions<{
+						query: {
+							sortBy: string;
+							sortOrder: "asc" | "desc"; // typeOff
+						};
+					}>,
+				);
 			},
 			method: "GET",
 			path: EventsApiPath.ROOT,
+			// validation: {
+			// 	params: eventParametersValidationSchema,
+			// },
 		});
 
 		this.addRoute({
@@ -44,11 +57,67 @@ class EventController extends BaseController {
 				params: eventParametersValidationSchema,
 			},
 		});
+
+		this.addRoute({
+			handler: (options) => {
+				return this.findAllUser(
+					options as APIHandlerOptions<{
+						query: EventUserListRequestQueryDto;
+					}>,
+				);
+			},
+			method: "GET",
+			path: EventsApiPath.USERS,
+			// validation: {
+			// 	params: eventParametersValidationSchema,
+			// },
+		});
+
+		this.addRoute({
+			handler: (options) => {
+				return this.update(
+					options as APIHandlerOptions<{
+						body: EventUpdateUserRequestDto;
+					}>,
+				);
+			},
+			method: "PATCH",
+			path: EventsApiPath.UPDATE_USERS,
+			// validation: {
+			// 	body: commentTextValidationSchema,
+			// 	params: commentIdParameterValidationSchema,
+			// },
+		});
 	}
 
-	private async findAll(): Promise<APIHandlerResponse> {
+	private async findAll(
+		options: APIHandlerOptions<{
+			query: {
+				sortBy: string;
+				sortOrder: "asc" | "desc";
+			};
+		}>,
+	): Promise<APIHandlerResponse> {
+		const { sortBy, sortOrder } = options.query;
+
 		return {
-			payload: await this.eventService.findAll(),
+			payload: await this.eventService.findAll({ sortBy, sortOrder }),
+			status: HTTPCode.OK,
+		};
+	}
+
+	private async findAllUser({
+		query: { count, eventId, page, search },
+	}: APIHandlerOptions<{
+		query: {
+			eventId: number;
+			search: string | undefined;
+		} & PaginationRequestDto;
+	}>): Promise<APIHandlerResponse> {
+		const parameters = { count, eventId, page, search: search ?? "" };
+
+		return {
+			payload: await this.eventService.findAllUsers(parameters),
 			status: HTTPCode.OK,
 		};
 	}
@@ -62,6 +131,20 @@ class EventController extends BaseController {
 	): Promise<APIHandlerResponse> {
 		return {
 			payload: await this.eventService.findById(options.params.id),
+			status: HTTPCode.OK,
+		};
+	}
+
+	private async update(
+		options: APIHandlerOptions<{
+			body: EventUpdateUserRequestDto;
+		}>,
+	): Promise<APIHandlerResponse> {
+		return {
+			payload: await this.eventService.update(
+				options.body.eventId,
+				options.body,
+			),
 			status: HTTPCode.OK,
 		};
 	}

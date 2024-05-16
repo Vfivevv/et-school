@@ -18,6 +18,7 @@ const WHITE_ROUTES = [
 	`${APIPath.EVENTS}${EventsApiPath.$ID}`,
 	`${APIPath.EVENTS}${EventsApiPath.USER}`,
 	`${APIPath.EVENTS}${EventsApiPath.USERS}`,
+	`${APIPath.EVENTS}${EventsApiPath.UPDATE_USERS}`,
 ];
 
 export { WHITE_ROUTES };

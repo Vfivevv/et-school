@@ -133,13 +133,13 @@ class BaseServerApplication implements ServerApplication {
 	}
 
 	private async initPlugins(): Promise<void> {
-		await this.app.register(authorization, {
-			services: {
-				userService: this.services.userService,
-			},
-			token: this.token,
-			whiteRoutes: WHITE_ROUTES,
-		});
+		// await this.app.register(authorization, {
+		// 	services: {
+		// 		userService: this.services.userService,
+		// 	},
+		// 	token: this.token,
+		// 	whiteRoutes: WHITE_ROUTES,
+		// });
 	}
 
 	private async initServe(): Promise<void> {

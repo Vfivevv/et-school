@@ -5,7 +5,6 @@ type EventUserResponseDto = {
 	fullName: string;
 	id: number;
 	source: string;
-	title: string;
 	updatedAt: string;
 };
 

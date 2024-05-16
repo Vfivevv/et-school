@@ -1,3 +1,4 @@
+import { MagicNumber } from "~/libs/enums/enums.js";
 import { convertPageToZeroIndexed } from "~/libs/helpers/helpers.js";
 import { HTTPCode } from "~/libs/modules/http/http.js";
 import { type Service } from "~/libs/types/types.js";
@@ -13,7 +14,6 @@ import {
 	type EventUserResponseDto,
 	type PaginationResponseDto,
 } from "./libs/types/types.js";
-import { MagicNumber } from "~/libs/enums/enums.js";
 
 class EventService implements Service {
 	private eventRepository: EventRepository;

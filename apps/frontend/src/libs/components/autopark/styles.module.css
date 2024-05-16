@@ -1,0 +1,74 @@
+@import url("~/assets/css/media.css");
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	margin: 40px 0;
+}
+
+.list {
+	display: grid;
+	grid-template-rows: repeat(2, auto);
+	grid-template-columns: repeat(3, 1fr);
+	gap: 30px;
+	align-items: center;
+	padding: 40px;
+	opacity: 0;
+}
+
+.title {
+	position: relative;
+	font-size: var(--font-size-500);
+}
+
+.title::before,
+.title::after {
+	position: absolute;
+	top: 50%;
+	width: 100px;
+	height: 1px;
+	content: "";
+	background-color: var(--color-text-300);
+}
+
+.title::before {
+	left: 150;
+}
+
+.title::after {
+	right: 150;
+}
+
+.active {
+	opacity: 1;
+	animation: appearance-top 800ms ease-out;
+}
+
+@keyframes appearance-top {
+	from {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+@media screen and (--medium-screen) {
+	.list {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+		padding: 20px;
+	}
+}
+
+@media screen and (--small-screen) {
+	.list {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}

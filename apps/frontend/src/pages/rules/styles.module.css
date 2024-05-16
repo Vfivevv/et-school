@@ -1,0 +1,21 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	width: 100%;
+	padding: 20px;
+}
+
+.title {
+	font-size: var(--font-size-400);
+	font-weight: bold;
+	color: var(--dark-red-shadow);
+	text-transform: uppercase;
+}
+
+.rule-title {
+	margin-bottom: 10px;
+	font-size: var(--font-size-300);
+	font-weight: bold;
+	color: var(--dark-red-shadow);
+}

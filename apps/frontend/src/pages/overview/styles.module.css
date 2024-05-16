@@ -1,0 +1,13 @@
+@import url("~/assets/css/media.css");
+
+.container {
+	display: flex;
+	flex-direction: column;
+	padding: 40px 20px;
+}
+
+@media screen and (--large-screen) {
+	.container {
+		padding: 15px 20px;
+	}
+}

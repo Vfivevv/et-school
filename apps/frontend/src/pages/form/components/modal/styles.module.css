@@ -1,0 +1,30 @@
+@import url("~/assets/css/media.css");
+
+.edit-modal {
+	width: 30%;
+	min-width: 150px;
+	height: 20%;
+	min-height: 150px;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	justify-content: space-between;
+	height: 100%;
+	padding: 20px;
+	background-color: var(--color-background);
+	border-radius: 10px;
+}
+
+.title {
+	font-size: var(--font-size-300);
+	font-weight: bold;
+	text-align: center;
+}
+
+.text {
+	font-size: var(--font-size-200);
+	text-align: center;
+}

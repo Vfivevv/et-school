@@ -1,0 +1,113 @@
+@import url("~/assets/css/media.css");
+
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 60px;
+	width: 100%;
+	padding: 20px;
+}
+
+.title {
+	font-size: var(--font-size-400);
+	font-weight: bold;
+	color: var(--dark-red-shadow);
+	text-transform: uppercase;
+}
+
+.title::first-letter {
+	color: var(--main-color);
+}
+
+.content {
+	display: flex;
+	gap: 40px;
+	justify-content: space-around;
+	width: 100%;
+	padding: 10px;
+}
+
+.reverse {
+	flex-direction: row-reverse;
+}
+
+.image {
+	width: 50%;
+}
+
+.description {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	width: 50%;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.item {
+	display: flex;
+	gap: 6px;
+	align-items: center;
+}
+
+.icon {
+	color: var(--main-color);
+}
+
+.active-left {
+	opacity: 1;
+	animation: appearance-left 800ms ease-out;
+}
+
+.active-right {
+	opacity: 1;
+	animation: appearance-right 800ms ease-out;
+}
+
+@keyframes appearance-left {
+	from {
+		opacity: 0;
+		transform: translateX(-50px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+@keyframes appearance-right {
+	from {
+		opacity: 0;
+		transform: translateX(80px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+@media screen and (--medium-screen) {
+	.content {
+		flex-direction: column;
+	}
+
+	.description {
+		width: 100%;
+	}
+
+	.image {
+		width: 100%;
+	}
+}
+
+@media screen and (--small-screen) {
+	.container {
+		gap: 20px;
+	}
+}

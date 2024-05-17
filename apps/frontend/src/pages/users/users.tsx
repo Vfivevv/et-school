@@ -10,27 +10,42 @@ import {
 import { actions as eventsActions } from "~/modules/events/cars.js";
 
 import { UserCard } from "./components/components.js";
+import { MagicNumber } from "./libs/enums/enums.js";
 import styles from "./styles.module.css";
 
 const Users: React.FC = () => {
 	const dispatch = useAppDispatch();
 	const { id } = useParams();
 	const { users } = useAppSelector((state) => state.events);
+	const [searchTerm, setSearchTerm] = useState<string>("");
 
+	const handleSearchChange = useCallback(
+		(event: React.ChangeEvent<HTMLInputElement>): void => {
+			setSearchTerm(event.target.value);
+		},
+		[],
+	);
 	useEffect(() => {
 		void dispatch(
 			eventsActions.getEventUsers({
-				count: 12,
+				count: MagicNumber.PAGE_COUNT,
 				eventId: Number(id),
-				page: 1,
-				search: "",
+				page: MagicNumber.DEFAULT_PAGE,
+				search: searchTerm,
 			}),
 		);
-	}, [dispatch, id]);
+	}, [dispatch, id, searchTerm]);
 
 	return (
 		<div className={styles["container"]}>
-			{users.length === 0 ? (
+			<input
+				className={styles["input"]}
+				onChange={handleSearchChange}
+				placeholder="Search users..."
+				type="text"
+				value={searchTerm}
+			/>
+			{users.length === MagicNumber.EMPTY_ARRAY ? (
 				<p>No registered users</p>
 			) : (
 				<ul className={styles["list-container"]}>

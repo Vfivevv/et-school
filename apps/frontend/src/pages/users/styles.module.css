@@ -10,13 +10,6 @@
 	padding: 20px;
 }
 
-.button-container {
-	display: flex;
-	gap: 10px;
-	align-items: center;
-	justify-content: center;
-}
-
 .list-container {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
@@ -24,8 +17,12 @@
 	width: 100%;
 }
 
-.button {
-	min-width: 170px;
+.input {
+	padding: 8px;
+	margin-bottom: 16px;
+	font-size: 16px;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
 }
 
 @media screen and (--large-screen) {

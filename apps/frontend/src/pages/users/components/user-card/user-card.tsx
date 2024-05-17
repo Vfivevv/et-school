@@ -1,7 +1,4 @@
-import { type EventResponseDto, type EventUserResponseDto } from "@car/shared";
-
-import { Button } from "~/libs/components/components.js";
-import { AppRoute } from "~/libs/enums/app-route.enum.js";
+import { type EventUserResponseDto } from "@car/shared";
 
 import styles from "./styles.module.css";
 

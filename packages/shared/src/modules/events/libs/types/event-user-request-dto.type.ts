@@ -3,7 +3,6 @@ type EventUserRequestDto = {
 	email: string;
 	fullName: string;
 	source: string;
-	title: string;
 };
 
 export { type EventUserRequestDto };

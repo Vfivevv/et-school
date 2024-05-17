@@ -7,7 +7,7 @@ import {
 	useEffect,
 	useState,
 } from "~/libs/hooks/hooks.js";
-import { actions as eventsActions } from "~/modules/events/cars.js";
+import { actions as eventsActions } from "~/modules/events/events.js";
 
 import { UserCard } from "./components/components.js";
 import { MagicNumber } from "./libs/enums/enums.js";

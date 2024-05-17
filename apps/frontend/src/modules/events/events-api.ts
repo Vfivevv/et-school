@@ -1,5 +1,6 @@
 import {
 	type EventUserListRequestQueryDto,
+	type EventUserRequestDto,
 	type EventUserResponseDto,
 	type PaginationResponseDto,
 } from "@car/shared";
@@ -24,6 +25,22 @@ type Constructor = {
 class EventApi extends BaseHTTPApi {
 	public constructor({ baseUrl, http, storage }: Constructor) {
 		super({ baseUrl, http, path: APIPath.EVENTS, storage });
+	}
+
+	public async createUser(
+		payload: EventUserRequestDto,
+	): Promise<PaginationResponseDto<EventUserResponseDto>> {
+		const response = await this.load(
+			this.getFullEndpoint(EventsApiPath.UPDATE_USERS, {}),
+			{
+				contentType: ContentType.JSON,
+				hasAuth: false,
+				method: "PATCH",
+				payload: JSON.stringify(payload),
+			},
+		);
+
+		return await response.json<PaginationResponseDto<EventUserResponseDto>>();
 	}
 
 	public async getAllEvents(filter: EventSortDto): Promise<EventResponseDto[]> {

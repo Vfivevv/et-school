@@ -4,9 +4,10 @@ import { createSlice } from "@reduxjs/toolkit";
 import { DataStatus } from "~/libs/enums/enums.js";
 import { type ValueOf } from "~/libs/types/types.js";
 
-import { getAllEvents, getEventUsers } from "./actions.js";
+import { createUser, getAllEvents, getEventUsers } from "./actions.js";
 
 type State = {
+	creatUserDataStatus: ValueOf<typeof DataStatus>;
 	dataStatus: ValueOf<typeof DataStatus>;
 	events: [] | EventResponseDto[];
 	users: [] | EventUserResponseDto[];
@@ -14,6 +15,7 @@ type State = {
 };
 
 const initialState: State = {
+	creatUserDataStatus: DataStatus.IDLE,
 	dataStatus: DataStatus.IDLE,
 	events: [],
 	users: [],
@@ -35,7 +37,6 @@ const { actions, name, reducer } = createSlice({
 		});
 		builder.addCase(getEventUsers.fulfilled, (state, action) => {
 			state.users = action.payload.items;
-			console.log(state.users)
 			state.usersTotal = action.payload.total;
 			state.dataStatus = DataStatus.FULFILLED;
 		});
@@ -45,6 +46,17 @@ const { actions, name, reducer } = createSlice({
 		builder.addCase(getEventUsers.rejected, (state) => {
 			state.users = [];
 			state.dataStatus = DataStatus.REJECTED;
+		});
+		builder.addCase(createUser.fulfilled, (state, action) => {
+			state.users = action.payload.items;
+			state.usersTotal = action.payload.total;
+			state.creatUserDataStatus = DataStatus.FULFILLED;
+		});
+		builder.addCase(createUser.pending, (state) => {
+			state.creatUserDataStatus = DataStatus.PENDING;
+		});
+		builder.addCase(createUser.rejected, (state) => {
+			state.creatUserDataStatus = DataStatus.REJECTED;
 		});
 	},
 	initialState,

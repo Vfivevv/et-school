@@ -11,7 +11,7 @@ import { notification } from "~/libs/modules/notification/notification.js";
 import { reducer as appReducer } from "~/libs/slices/app/app.js";
 import { authApi, reducer as authReducer } from "~/modules/auth/auth.js";
 import { carApi, reducer as carsReducer } from "~/modules/cars/cars.js";
-import { eventApi, reducer as eventsReducer } from "~/modules/events/cars.js";
+import { eventApi, reducer as eventsReducer } from "~/modules/events/events.js";
 import { formApi, reducer as formsReducer } from "~/modules/form/forms.js";
 import { userApi, reducer as usersReducer } from "~/modules/users/users.js";
 

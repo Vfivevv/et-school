@@ -2,6 +2,7 @@ import {
 	type EventResponseDto,
 	type EventSortDto,
 	type EventUserListRequestQueryDto,
+	type EventUserRequestDto,
 	type EventUserResponseDto,
 	type PaginationResponseDto,
 } from "@car/shared";
@@ -10,6 +11,16 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { type AsyncThunkConfig } from "~/libs/types/types.js";
 
 import { name as sliceName } from "./events.slice.js";
+
+const createUser = createAsyncThunk<
+	PaginationResponseDto<EventUserResponseDto>,
+	EventUserRequestDto,
+	AsyncThunkConfig
+>(`${sliceName}/create-user`, async (payload, { extra }) => {
+	const { eventApi } = extra;
+
+	return await eventApi.createUser(payload);
+});
 
 const getAllEvents = createAsyncThunk<
 	EventResponseDto[],
@@ -31,4 +42,4 @@ const getEventUsers = createAsyncThunk<
 	return await eventApi.getEventUsers(query);
 });
 
-export { getAllEvents, getEventUsers };
+export { createUser, getAllEvents, getEventUsers };

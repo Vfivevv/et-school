@@ -108,7 +108,7 @@ class EventService implements Service {
 		eventId: number,
 		user: EventUserRequestDto,
 	): Promise<EventResponseDto | null> {
-		const { dateOfBirth, email, fullName, source, title } = user;
+		const { dateOfBirth, email, fullName, source } = user;
 
 		const isEmailExist = await this.eventRepository.checkIsEmailExist(email);
 
@@ -124,7 +124,6 @@ class EventService implements Service {
 			email,
 			fullName,
 			source,
-			title,
 		});
 
 		return updateEvent?.toObject() ?? null;

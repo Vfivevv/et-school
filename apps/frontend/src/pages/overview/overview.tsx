@@ -10,7 +10,7 @@ import {
 	useState,
 } from "~/libs/hooks/hooks.js";
 import { type ValueOf } from "~/libs/types/types.js";
-import { actions as eventsActions } from "~/modules/events/cars.js";
+import { actions as eventsActions } from "~/modules/events/events.js";
 
 import { EventCard } from "./components/components.js";
 import styles from "./styles.module.css";

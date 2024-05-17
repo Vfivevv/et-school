@@ -11,6 +11,7 @@ import {
 import { AppRoute } from "~/libs/enums/enums.js";
 import { store } from "~/libs/modules/store/store.js";
 
+import { Form } from "./pages/form/form.js";
 import { NotFound } from "./pages/not-found/not-found.js";
 import { Overview } from "./pages/overview/overview.js";
 import { Users } from "./pages/users/users.js";
@@ -32,8 +33,8 @@ createRoot(document.querySelector("#root") as HTMLElement).render(
 								path: AppRoute.EVENT,
 							},
 							{
-								element: <Users />,
-								path: AppRoute.EVENT,
+								element: <Form />,
+								path: AppRoute.EVENT_REGISTRATION,
 							},
 						],
 						element: <App />,

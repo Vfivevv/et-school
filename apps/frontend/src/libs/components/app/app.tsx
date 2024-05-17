@@ -26,13 +26,9 @@ const App: React.FC = () => {
 	}, [dispatch]);
 
 	return (
-		<div className={styles["page-layout"]}>
-			<Header isLoading={isLoading} menuItems={MENU_ITEMS} user={user} />
-			<main className={styles["main-container"]}>
-				<RouterOutlet />
-			</main>
-			<Footer />
-		</div>
+		<main className={styles["page-layout"]}>
+			<RouterOutlet />
+		</main>
 	);
 };
 

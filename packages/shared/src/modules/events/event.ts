@@ -4,6 +4,7 @@ export {
 	type EventGetByIdRequestDto,
 	type EventRequestDto,
 	type EventResponseDto,
+	type EventSortDto,
 	type EventUpdateUserRequestDto,
 	type EventUserListRequestQueryDto,
 	type EventUserRequestDto,

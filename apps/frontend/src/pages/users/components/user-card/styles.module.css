@@ -1,0 +1,17 @@
+@import url("~/assets/css/media.css");
+
+.card {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid black;
+}
+
+.button-container {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	justify-content: space-around;
+}

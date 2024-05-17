@@ -11,6 +11,7 @@ import { notification } from "~/libs/modules/notification/notification.js";
 import { reducer as appReducer } from "~/libs/slices/app/app.js";
 import { authApi, reducer as authReducer } from "~/modules/auth/auth.js";
 import { carApi, reducer as carsReducer } from "~/modules/cars/cars.js";
+import { eventApi, reducer as eventsReducer } from "~/modules/events/cars.js";
 import { formApi, reducer as formsReducer } from "~/modules/form/forms.js";
 import { userApi, reducer as usersReducer } from "~/modules/users/users.js";
 
@@ -21,6 +22,7 @@ type RootReducer = {
 	app: ReturnType<typeof appReducer>;
 	auth: ReturnType<typeof authReducer>;
 	cars: ReturnType<typeof carsReducer>;
+	events: ReturnType<typeof eventsReducer>;
 	forms: ReturnType<typeof formsReducer>;
 	users: ReturnType<typeof usersReducer>;
 };
@@ -28,6 +30,7 @@ type RootReducer = {
 type ExtraArguments = {
 	authApi: typeof authApi;
 	carApi: typeof carApi;
+	eventApi: typeof eventApi;
 	formApi: typeof formApi;
 	notification: typeof notification;
 	storage: typeof storage;
@@ -57,6 +60,7 @@ class Store {
 				app: appReducer,
 				auth: authReducer,
 				cars: carsReducer,
+				events: eventsReducer,
 				forms: formsReducer,
 				users: usersReducer,
 			},
@@ -67,6 +71,7 @@ class Store {
 		return {
 			authApi,
 			carApi,
+			eventApi,
 			formApi,
 			notification,
 			storage,

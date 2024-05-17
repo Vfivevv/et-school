@@ -62,12 +62,13 @@ class EventController extends BaseController {
 			handler: (options) => {
 				return this.findAllUser(
 					options as APIHandlerOptions<{
+						params: { id: number };
 						query: EventUserListRequestQueryDto;
 					}>,
 				);
 			},
 			method: "GET",
-			path: EventsApiPath.USERS,
+			path: EventsApiPath.EVENT,
 			// validation: {
 			// 	params: eventParametersValidationSchema,
 			// },
@@ -106,15 +107,21 @@ class EventController extends BaseController {
 		};
 	}
 
-	private async findAllUser({
-		query: { count, eventId, page, search },
-	}: APIHandlerOptions<{
-		query: {
-			eventId: number;
-			search: string | undefined;
-		} & PaginationRequestDto;
-	}>): Promise<APIHandlerResponse> {
+	private async findAllUser(
+		options: APIHandlerOptions<{
+			params: {
+				id: number;
+			};
+			query: {
+				search: string | undefined;
+			} & PaginationRequestDto;
+		}>,
+	): Promise<APIHandlerResponse> {
+		const { count, page, search } = options.query;
+		const eventId = options.params.id;
 		const parameters = { count, eventId, page, search: search ?? "" };
+		console.log(eventId);
+		console.log(await this.eventService.findAllUsers(parameters));
 
 		return {
 			payload: await this.eventService.findAllUsers(parameters),

@@ -1,6 +1,11 @@
 {
 	"extends": "../../tsconfig.json",
-	"include": ["**/*.ts", "**/*.js", "**/*.tsx"],
+	"include": [
+		"**/*.ts",
+		"**/*.js",
+		"**/*.tsx",
+		"src/pages/overview/components/event-card/event-card.tsx",
+	],
 	"exclude": ["node_modules", "build"],
 	"files": ["packages.d.ts"],
 	"compilerOptions": {

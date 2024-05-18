@@ -13,7 +13,7 @@ class EventModel extends AbstractModel {
 			eventUsers: {
 				join: {
 					from: `${DatabaseTableName.EVENTS}.id`,
-					to: `${DatabaseTableName.EVENT_USERS}.events_id`,
+					to: `${DatabaseTableName.EVENT_USERS}.event_id`,
 				},
 				modelClass: EventUserModel,
 				relation: Model.HasManyRelation,

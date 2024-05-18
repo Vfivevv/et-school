@@ -7,7 +7,7 @@ const ColumnName = {
 	CREATED_AT: "created_at",
 	DATE_OF_BIRTH: "date_of_birth",
 	EMAIL: "email",
-	EVENTS_ID: "events_id",
+	EVENT_ID: "event_id",
 	FULL_NAME: "full_name",
 	ID: "id",
 	SOURCE: "source",
@@ -17,8 +17,8 @@ const ColumnName = {
 async function up(knex: Knex): Promise<void> {
 	await knex.schema.createTable(TABLE_NAME, (table) => {
 		table.increments(ColumnName.ID).primary();
-		table.integer(ColumnName.EVENTS_ID).references("id").inTable("events");
-		table.string(ColumnName.EMAIL, EMAIL_MAXIMUM_LENGTH).unique().notNullable();
+		table.integer(ColumnName.EVENT_ID).references("id").inTable("events");
+		table.string(ColumnName.EMAIL, EMAIL_MAXIMUM_LENGTH).notNullable();
 		table.text(ColumnName.FULL_NAME).notNullable();
 		table.text(ColumnName.SOURCE).notNullable();
 		table.dateTime(ColumnName.DATE_OF_BIRTH).notNullable();
@@ -38,4 +38,3 @@ async function down(knex: Knex): Promise<void> {
 }
 
 export { down, up };
-

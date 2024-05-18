@@ -1,1 +1,1 @@
-export { HTTPCode, HTTPError, HTTPHeader } from "@car/shared";
+export { HTTPCode, HTTPError } from "@car/shared";

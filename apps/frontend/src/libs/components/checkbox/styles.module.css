@@ -3,13 +3,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	user-select: none;
-}
-
-.checkbox-label {
 	font-size: var(--font-size-200);
-	font-weight: 500;
-	line-height: 16px;
+	user-select: none;
 }
 
 .input {
@@ -17,23 +12,23 @@
 	height: 16px;
 	appearance: none;
 	cursor: pointer;
-	border: 1px solid var(--dark-red-shadow);
+	border: 1px solid var(--main-blue);
 	border-radius: 3px;
 }
 
 .input:checked {
 	position: relative;
-	background-color: var(--main-color);
-	border-color: var(--main-color);
+	background-color: var(--main-blue);
+	border-color: var(--main-blue);
 }
 
 .input:disabled {
 	cursor: default;
-	border-color: var(--color-text-500);
+	border-color: var(--color-text-100);
 }
 
 .input:checked:disabled {
-	background-color: var(--color-text-500);
+	background-color: var(--color-text-100);
 }
 
 .input:checked::before {

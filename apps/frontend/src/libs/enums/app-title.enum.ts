@@ -1,12 +1,8 @@
 const AppTitle = {
-	ABOUT_US: "About us",
-	FORGOT_PASSWORD: "Forgot password",
+	EVENT: "Event",
 	NOT_FOUND: "Not Found",
-	RESERVATION: "Reservation",
-	RULES: "Rules",
-	SIGN_IN: "Sign In",
-	SIGN_UP: "Sign Up",
-	UPDATE_PASSWORD: "Update password",
+	REGISTRATION: "Registration",
+	USERS: "Users",
 } as const;
 
 export { AppTitle };

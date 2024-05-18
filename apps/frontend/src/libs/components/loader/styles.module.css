@@ -36,11 +36,11 @@
 }
 
 .loader::before {
-	border-top-color: #1e0a0a;
+	border-top-color: var(--main-black);
 }
 
 .loader::after {
-	border-top-color: #ff3d00;
+	border-top-color: var(--main-blue);
 	animation-delay: 0.4s;
 }
 

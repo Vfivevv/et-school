@@ -1,18 +1,16 @@
-import {
-	type EventUserRequestDto,
-	formInformationParametersValidationSchema,
-} from "@car/shared";
-import { useNavigate, useParams } from "react-router-dom";
-
 import { Button, Checkbox, Input } from "~/libs/components/components.js";
 import { AppRoute } from "~/libs/enums/enums.js";
 import {
 	useAppDispatch,
 	useAppForm,
 	useCallback,
+	useNavigate,
+	useParams,
 	useState,
 } from "~/libs/hooks/hooks.js";
 import { actions as eventsActions } from "~/modules/events/events.js";
+import { type EventUserRequestDto } from "~/modules/events/libs/types/types.js";
+import { eventFormParametersValidationSchema } from "~/modules/events/libs/validation/validation.js";
 
 import { ARRAY_LENGHT } from "../libs/constants/array-length.constant.js";
 import styles from "./styles.module.css";
@@ -31,7 +29,7 @@ const ReservationInformation: React.FC = () => {
 				fullName: "",
 				source: "Friend",
 			},
-			validationSchema: formInformationParametersValidationSchema,
+			validationSchema: eventFormParametersValidationSchema,
 		});
 
 	const handleCheckboxChange = useCallback((value: string): void => {

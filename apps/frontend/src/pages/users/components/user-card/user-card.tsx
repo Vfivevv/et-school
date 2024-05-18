@@ -1,4 +1,4 @@
-import { type EventUserResponseDto } from "@car/shared";
+import { type EventUserResponseDto } from "~/modules/events/libs/types/types.js";
 
 import styles from "./styles.module.css";
 

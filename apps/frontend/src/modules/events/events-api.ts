@@ -1,10 +1,3 @@
-import {
-	type EventUserListRequestQueryDto,
-	type EventUserRequestDto,
-	type EventUserResponseDto,
-	type PaginationResponseDto,
-} from "@car/shared";
-
 import { APIPath, ContentType } from "~/libs/enums/enums.js";
 import { BaseHTTPApi } from "~/libs/modules/api/api.js";
 import { type HTTP } from "~/libs/modules/http/http.js";
@@ -14,6 +7,10 @@ import { EventsApiPath } from "./libs/enums/enums.js";
 import {
 	type EventResponseDto,
 	type EventSortDto,
+	type EventUserListRequestQueryDto,
+	type EventUserRequestDto,
+	type EventUserResponseDto,
+	type PaginationResponseDto,
 } from "./libs/types/types.js";
 
 type Constructor = {

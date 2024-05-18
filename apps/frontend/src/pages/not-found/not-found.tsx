@@ -15,7 +15,7 @@ const NotFound: React.FC = () => {
 					There is no page you are trying to find.
 				</p>
 				<div className={styles["actions"]}>
-					<Button href="/" label="Go Home"/>
+					<Button href="/" label="Go Home" />
 				</div>
 			</div>
 		</div>

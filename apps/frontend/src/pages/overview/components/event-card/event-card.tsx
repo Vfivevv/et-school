@@ -1,11 +1,8 @@
-import {
-	type EventResponseDto,
-	type ValueOf,
-	configureString,
-} from "@car/shared";
-
 import { Button } from "~/libs/components/components.js";
 import { AppRoute } from "~/libs/enums/app-route.enum.js";
+import { configureString } from "~/libs/helpers/helpers.js";
+import { type ValueOf } from "~/libs/types/types.js";
+import { type EventResponseDto } from "~/modules/events/libs/types/types.js";
 
 import styles from "./styles.module.css";
 

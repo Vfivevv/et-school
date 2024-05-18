@@ -7,9 +7,9 @@ import svgr from "vite-plugin-svgr";
 
 const config = ({ mode }: ConfigEnv): ReturnType<typeof defineConfig> => {
 	const {
-		VITE_APP_API_ORIGIN_URL,
+		// VITE_APP_API_ORIGIN_URL,
 		VITE_APP_DEVELOPMENT_PORT,
-		VITE_APP_PROXY_SERVER_URL,
+		// VITE_APP_PROXY_SERVER_URL,
 	} = loadEnv(mode, process.cwd());
 
 	return defineConfig({
@@ -41,12 +41,12 @@ const config = ({ mode }: ConfigEnv): ReturnType<typeof defineConfig> => {
 		server: {
 			host: true,
 			port: Number(VITE_APP_DEVELOPMENT_PORT),
-			proxy: {
-				[VITE_APP_API_ORIGIN_URL as string]: {
-					changeOrigin: true,
-					target: VITE_APP_PROXY_SERVER_URL,
-				},
-			},
+			// proxy: {
+			// 	[VITE_APP_API_ORIGIN_URL as string]: {
+			// 		changeOrigin: true,
+			// 		target: VITE_APP_PROXY_SERVER_URL,
+			// 	},
+			// },
 		},
 	});
 };

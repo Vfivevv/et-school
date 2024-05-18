@@ -10,6 +10,6 @@ const eventApi = new EventApi({
 	storage,
 });
 
-export { type EventResponseDto } from "./libs/types/types.js";
 export { eventApi };
 export { actions, reducer } from "./slices/events.js";
+

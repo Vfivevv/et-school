@@ -2,15 +2,15 @@ import { z } from "zod";
 
 import { FormValidationMessage, FormValidationRule } from "../enums/enums.js";
 
-type FormInformationValidationDto = {
+type EventFormValidationDto = {
 	dateOfBirth: z.ZodString;
 	email: z.ZodString;
 	fullName: z.ZodString;
 	source: z.ZodString;
 };
 
-const formInformationParameters = z
-	.object<FormInformationValidationDto>({
+const eventFormParameters = z
+	.object<EventFormValidationDto>({
 		dateOfBirth: z
 			.string()
 			.trim()
@@ -90,4 +90,4 @@ const formInformationParameters = z
 	})
 	.required();
 
-export { formInformationParameters };
+export { eventFormParameters };

@@ -1,5 +1,3 @@
-import { useParams } from "react-router-dom";
-
 import { Loader } from "~/libs/components/components.js";
 import { AppTitle, DataStatus } from "~/libs/enums/enums.js";
 import {
@@ -8,6 +6,7 @@ import {
 	useAppTitle,
 	useCallback,
 	useEffect,
+	useParams,
 	useState,
 } from "~/libs/hooks/hooks.js";
 import { actions as eventsActions } from "~/modules/events/events.js";

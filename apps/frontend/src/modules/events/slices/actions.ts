@@ -1,3 +1,7 @@
+import { createAsyncThunk } from "@reduxjs/toolkit";
+
+import { type AsyncThunkConfig } from "~/libs/types/types.js";
+
 import {
 	type EventResponseDto,
 	type EventSortDto,
@@ -5,11 +9,7 @@ import {
 	type EventUserRequestDto,
 	type EventUserResponseDto,
 	type PaginationResponseDto,
-} from "@car/shared";
-import { createAsyncThunk } from "@reduxjs/toolkit";
-
-import { type AsyncThunkConfig } from "~/libs/types/types.js";
-
+} from "../libs/types/types.js";
 import { name as sliceName } from "./events.slice.js";
 
 const createUser = createAsyncThunk<

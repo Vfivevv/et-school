@@ -1,4 +1,3 @@
-import { type EventUserResponseDto } from "@car/shared";
 import {
 	CategoryScale,
 	Chart as ChartJS,
@@ -11,6 +10,8 @@ import {
 } from "chart.js";
 import { type RefObject, useEffect, useRef, useState } from "react";
 import { Line } from "react-chartjs-2";
+
+import { type EventUserResponseDto } from "~/modules/events/libs/types/types.js";
 
 import { MagicNumber } from "../../libs/enums/magic-number.enum.js";
 

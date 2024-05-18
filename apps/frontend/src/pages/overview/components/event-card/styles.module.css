@@ -6,12 +6,17 @@
 	gap: 10px;
 	width: 100%;
 	padding: 10px;
-	border: 1px solid black;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	background-color: var(--second-blue);
+	border: 1px solid var(--main-black);
+	border-radius: 6px;
 }
 
 .button-container {
 	display: flex;
 	gap: 10px;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: space-between;
 }

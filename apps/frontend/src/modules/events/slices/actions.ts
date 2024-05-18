@@ -13,7 +13,7 @@ import { type AsyncThunkConfig } from "~/libs/types/types.js";
 import { name as sliceName } from "./events.slice.js";
 
 const createUser = createAsyncThunk<
-	PaginationResponseDto<EventUserResponseDto>,
+	EventResponseDto,
 	EventUserRequestDto,
 	AsyncThunkConfig
 >(`${sliceName}/create-user`, async (payload, { extra }) => {

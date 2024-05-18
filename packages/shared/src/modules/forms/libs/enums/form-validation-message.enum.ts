@@ -9,7 +9,7 @@ const FormValidationMessage = {
 	FIELD_REQUIRE: "This field is required",
 	FIRST_LAST_CHARACTERS_ONLY_LETTERS:
 		"First and last characters must be letters",
-	FIRST_NAME_INVALID_CHARACTERS: "Use only A-Z, a-z, 1 hyphen & 1 apostrophe",
+	FIRST_NAME_INVALID_CHARACTERS: "Use only A-Z, a-z",
 	FIRST_NAME_MAXIMUM_LENGTH: `Maximum length – ${FormValidationRule.FIRST_NAME_MAXIMUM_LENGTH} characters`,
 	FIRST_NAME_MINIMUM_LENGTH: `Minimum length – ${FormValidationRule.FIRST_NAME_MINIMUM_LENGTH} characters`,
 	INVALID_CHARACTERS: "Use only A-Z, a-z, 1 hyphen & 1 apostrophe",

@@ -120,8 +120,6 @@ class EventController extends BaseController {
 		const { count, page, search } = options.query;
 		const eventId = options.params.id;
 		const parameters = { count, eventId, page, search: search ?? "" };
-		console.log(eventId);
-		console.log(await this.eventService.findAllUsers(parameters));
 
 		return {
 			payload: await this.eventService.findAllUsers(parameters),

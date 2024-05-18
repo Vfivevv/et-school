@@ -14,12 +14,6 @@
 	transition: 0.3s ease;
 }
 
-.content {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
 .regular {
 	min-height: 54px;
 	padding: 8px 24px;
@@ -41,59 +35,16 @@
 	border-radius: 2px;
 }
 
-.regular > .content {
-	column-gap: 8px;
-}
-
-.small > .content {
-	column-gap: 4px;
-}
-
-.default > .content {
-	display: flex;
-	flex-direction: row-reverse;
-	column-gap: 4px;
-}
-
 .primary {
 	color: var(--main-white);
-	background-color: var(--main-color);
-	border-color: var(--main-color);
+	background-color: var(--main-blue);
+	border-color: var(--main-blue);
 }
 
 .secondary {
-	color: var(--main-color);
+	color: var(--main-blue);
 	background-color: transparent;
-	border-color: var(--main-color);
-}
-
-.black {
-	color: var(--main-white);
-	background-color: var(--main-black);
-	border-color: transparent;
-}
-
-.red {
-	color: var(--main-white);
-	background-color: var(--main-color);
-	border-color: transparent;
-}
-
-.primary.disabled,
-.primary.disabled:focus {
-	color: var(--main-white);
-	cursor: default;
-	background-color: var(--color-text-100);
-	border-color: var(--color-text-100);
-}
-
-.secondary.disabled,
-.secondary.disabled:focus {
-	border-color: var(--color-text-100);
-}
-
-.content-hidden {
-	visibility: hidden;
+	border-color: var(--main-blue);
 }
 
 .button-loader {
@@ -113,16 +64,6 @@
 		border-color: var(--main-white);
 	}
 
-	.black:hover {
-		color: var(--main-white);
-		background-color: var(--main-color);
-	}
-
-	.red:hover {
-		color: var(--main-white);
-		background-color: var(--main-black);
-	}
-
 	.primary.disabled:hover {
 		color: var(--main-white);
 		cursor: default;
@@ -131,7 +72,7 @@
 	}
 
 	.primary:hover {
-		color: var(--main-color);
-		background-color: var(--main-white);
+		color: var(--color-text-100);
+		background-color: var(--second-blue);
 	}
 }

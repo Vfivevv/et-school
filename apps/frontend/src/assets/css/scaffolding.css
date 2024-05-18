@@ -43,10 +43,6 @@ body {
 	overflow: hidden;
 }
 
-.swiper-pagination-bullet {
-	background-color: red !important;
-}
-
 @-moz-document url-prefix() {
 	* {
 		scrollbar-color: var(--color-text-100) var(--main-color);

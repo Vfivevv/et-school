@@ -31,10 +31,13 @@ class EventRepository implements Repository<EventEntity> {
 			.orWhereILike("eventUsers.email", `%${search}%`);
 	}
 
-	public async checkIsEmailExist(email: string): Promise<boolean> {
+	public async checkIsEmailExist(
+		email: string,
+		eventId: number,
+	): Promise<boolean> {
 		const user = await this.eventUserModel
 			.query()
-			.where("email", email)
+			.where({ email, event_id: eventId })
 			.first();
 
 		return Boolean(user);

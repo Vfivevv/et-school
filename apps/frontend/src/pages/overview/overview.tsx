@@ -1,10 +1,11 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 
-import { Button } from "~/libs/components/components.js";
-import { type AppRoute } from "~/libs/enums/enums.js";
+import { Button, Loader } from "~/libs/components/components.js";
+import { type AppRoute, AppTitle, DataStatus } from "~/libs/enums/enums.js";
 import {
 	useAppDispatch,
 	useAppSelector,
+	useAppTitle,
 	useCallback,
 	useEffect,
 	useState,
@@ -22,6 +23,11 @@ const Overview: React.FC = () => {
 	const [queryParameters] = useSearchParams();
 	const { events } = useAppSelector((state) => state.events);
 	const currentPage = 1;
+	const eventsDataStatus = useAppSelector(({ events }) => {
+		return events.dataStatus;
+	});
+
+	const isLoading = eventsDataStatus === DataStatus.PENDING;
 
 	const handleSort = useCallback(() => {
 		setSortOrder((previousSortOrder) =>
@@ -45,8 +51,11 @@ const Overview: React.FC = () => {
 		);
 	}, [dispatch, queryParameters, currentPage, sortOrder]);
 
+	useAppTitle(AppTitle.EVENT);
+
 	return (
 		<div className={styles["container"]}>
+			<h3 className={styles["title"]}>Events</h3>
 			<div className={styles["button-container"]}>
 				<Button
 					className={styles["button"]}
@@ -77,15 +86,19 @@ const Overview: React.FC = () => {
 				/>
 				<Button
 					className={styles["button"]}
-					label={`Sort ${sortOrder === "asc" ? "desc" : "asc"}`}
+					label={`Sort ${sortOrder === "asc" ? "Descending" : "Ascending"}`}
 					onClick={handleSort}
 				/>
 			</div>
-			<ul className={styles["list-container"]}>
-				{events.map((event) => (
-					<EventCard event={event} key={event.id} />
-				))}
-			</ul>
+			{isLoading ? (
+				<Loader size="large" />
+			) : (
+				<ul className={styles["list-container"]}>
+					{events.map((event) => (
+						<EventCard event={event} key={event.id} />
+					))}
+				</ul>
+			)}
 		</div>
 	);
 };

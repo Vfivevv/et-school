@@ -29,7 +29,7 @@ class EventApi extends BaseHTTPApi {
 
 	public async createUser(
 		payload: EventUserRequestDto,
-	): Promise<PaginationResponseDto<EventUserResponseDto>> {
+	): Promise<EventResponseDto> {
 		const response = await this.load(
 			this.getFullEndpoint(EventsApiPath.UPDATE_USERS, {}),
 			{
@@ -40,7 +40,7 @@ class EventApi extends BaseHTTPApi {
 			},
 		);
 
-		return await response.json<PaginationResponseDto<EventUserResponseDto>>();
+		return await response.json<EventResponseDto>();
 	}
 
 	public async getAllEvents(filter: EventSortDto): Promise<EventResponseDto[]> {

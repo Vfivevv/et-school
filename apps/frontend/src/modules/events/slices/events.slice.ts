@@ -48,8 +48,11 @@ const { actions, name, reducer } = createSlice({
 			state.dataStatus = DataStatus.REJECTED;
 		});
 		builder.addCase(createUser.fulfilled, (state, action) => {
-			state.users = action.payload.items;
-			state.usersTotal = action.payload.total;
+			const updatedEvent = action.payload;
+			state.events = state.events.map((event) =>
+				event.id === updatedEvent.id ? updatedEvent : event,
+			);
+
 			state.creatUserDataStatus = DataStatus.FULFILLED;
 		});
 		builder.addCase(createUser.pending, (state) => {

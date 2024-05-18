@@ -13,33 +13,27 @@
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
+	align-items: center;
+	justify-content: center;
 	width: 100%;
-	padding: 20px 0;
+	padding: 20px;
 }
 
 .title {
 	font-size: var(--font-size-400);
 	font-weight: bold;
-	color: var(--dark-red-shadow);
-	text-transform: uppercase;
 }
 
 .form {
 	display: flex;
-	gap: 20px;
-	width: 100%;
-}
-
-.content {
-	display: flex;
 	flex-direction: column;
-	gap: 10px;
+	gap: 20px;
 	width: 50%;
 	height: fit-content;
 	padding: 20px;
 	font-size: var(--font-size-500);
 	color: var(--main-white);
-	background-color: var(--dark-red-shadow);
+	background-color: var(--thirty-blue);
 	border-radius: 4px;
 }
 
@@ -53,33 +47,14 @@
 	font-weight: bold;
 }
 
-.checkbox {
-	background-color: var(--main-white);
-}
-
-.price-container {
-	display: flex;
-	gap: 6px;
-}
-
-.price-loader {
-	margin: 0;
-}
-
 @media screen and (--medium-screen) {
-	.form-wrapper {
-		padding: 20px;
+	.form {
+		width: 75%;
 	}
 }
 
 @media screen and (--small-screen) {
 	.form {
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.content {
 		width: 100%;
 	}
 }

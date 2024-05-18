@@ -1,15 +1,18 @@
 import { useParams } from "react-router-dom";
 
+import { Loader } from "~/libs/components/components.js";
+import { AppTitle, DataStatus } from "~/libs/enums/enums.js";
 import {
 	useAppDispatch,
 	useAppSelector,
+	useAppTitle,
 	useCallback,
 	useEffect,
 	useState,
 } from "~/libs/hooks/hooks.js";
 import { actions as eventsActions } from "~/modules/events/events.js";
 
-import { UserCard } from "./components/components.js";
+import { UserCard, UserRegistrationChart } from "./components/components.js";
 import { MagicNumber } from "./libs/enums/enums.js";
 import styles from "./styles.module.css";
 
@@ -18,6 +21,11 @@ const Users: React.FC = () => {
 	const { id } = useParams();
 	const { users } = useAppSelector((state) => state.events);
 	const [searchTerm, setSearchTerm] = useState<string>("");
+	const usersDataStatus = useAppSelector(({ events }) => {
+		return events.dataStatus;
+	});
+
+	const isLoading = usersDataStatus === DataStatus.PENDING;
 
 	const handleSearchChange = useCallback(
 		(event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -36,8 +44,12 @@ const Users: React.FC = () => {
 		);
 	}, [dispatch, id, searchTerm]);
 
+	useAppTitle(AppTitle.USERS);
+
 	return (
 		<div className={styles["container"]}>
+			<h3 className={styles["title"]}>Awesome event participants</h3>
+			<UserRegistrationChart users={users} />
 			<input
 				className={styles["input"]}
 				onChange={handleSearchChange}
@@ -45,7 +57,9 @@ const Users: React.FC = () => {
 				type="text"
 				value={searchTerm}
 			/>
-			{users.length === MagicNumber.EMPTY_ARRAY ? (
+			{isLoading ? (
+				<Loader size="large" />
+			) : (users.length === MagicNumber.EMPTY_ARRAY ? (
 				<p>No registered users</p>
 			) : (
 				<ul className={styles["list-container"]}>
@@ -53,7 +67,7 @@ const Users: React.FC = () => {
 						<UserCard key={user.id} user={user} />
 					))}
 				</ul>
-			)}
+			))}
 		</div>
 	);
 };

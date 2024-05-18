@@ -30,11 +30,11 @@ createRoot(document.querySelector("#root") as HTMLElement).render(
 							},
 							{
 								element: <Users />,
-								path: AppRoute.EVENT,
+								path: AppRoute.EVENT_$ID,
 							},
 							{
 								element: <Form />,
-								path: AppRoute.EVENT_REGISTRATION,
+								path: AppRoute.EVENT_REGISTRATION_$ID,
 							},
 						],
 						element: <App />,

@@ -1,7 +1,7 @@
 const AppRoute = {
 	ANY: "*",
-	EVENT: "/event/:id",
-	EVENT_REGISTRATION: "/event-registration",
+	EVENT_$ID: "/event/:id",
+	EVENT_REGISTRATION_$ID: "/event-registration/:id",
 	ROOT: "/",
 } as const;
 

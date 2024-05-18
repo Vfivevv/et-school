@@ -9,10 +9,8 @@ type Properties = {
 const UserCard: React.FC<Properties> = ({ user }: Properties) => {
 	return (
 		<li className={styles["card"]} key={user.id}>
-			<h3>{user.fullName}</h3>
+			<h3 className={styles["title"]}>{user.fullName}</h3>
 			<p>{user.email}</p>
-			<p>{new Date(user.dateOfBirth).toLocaleDateString()}</p>
-			<p>How did you know about us? {user.source}</p>
 		</li>
 	);
 };

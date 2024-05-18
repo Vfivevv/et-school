@@ -8,9 +8,7 @@ import {
 
 import { getValidClassNames } from "~/libs/helpers/helpers.js";
 import { useFormController } from "~/libs/hooks/hooks.js";
-import { type IconName } from "~/libs/types/types.js";
 
-import { Icon } from "../icon/icon.js";
 import styles from "./styles.module.css";
 
 type Properties<T extends FieldValues> = {
@@ -19,7 +17,6 @@ type Properties<T extends FieldValues> = {
 	control: Control<T, null>;
 	errors: FieldErrors<T>;
 	hasVisuallyHiddenLabel?: boolean;
-	iconName?: IconName;
 	inputMode?: "email" | "numeric" | "text";
 	label: string;
 	maxDate?: string;
@@ -37,7 +34,6 @@ const Input = <T extends FieldValues>({
 	control,
 	errors,
 	hasVisuallyHiddenLabel,
-	iconName,
 	inputMode = "text",
 	label,
 	maxDate = "",
@@ -50,11 +46,6 @@ const Input = <T extends FieldValues>({
 }: Properties<T>): JSX.Element => {
 	const { field } = useFormController({ control, name });
 
-	const icon = iconName ? (
-		<Icon className={styles["icon"]} name={iconName} />
-	) : null;
-	const hasIcon = Boolean(iconName);
-
 	const error = errors[name]?.message;
 	const hasError = Boolean(error);
 
@@ -65,7 +56,6 @@ const Input = <T extends FieldValues>({
 		isTextArea ? styles["textarea"] : styles["input"],
 		styles[color],
 		hasError && styles["error-input"],
-		hasIcon && styles["input-with-icon"],
 	);
 	const labelClasses = getValidClassNames(
 		styles["heading"],
@@ -75,7 +65,6 @@ const Input = <T extends FieldValues>({
 	return (
 		<label className={styles["container"]}>
 			<span className={labelClasses}>{label}</span>
-			{icon}
 			{isTextArea ? (
 				<textarea
 					className={inputClasses}

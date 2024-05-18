@@ -20,13 +20,31 @@
 .input {
 	padding: 8px;
 	margin-bottom: 16px;
-	font-size: 16px;
-	border: 1px solid #cccccc;
+	font-size: var(--font-size-300);
+	background-color: var(--second-blue);
+	border: 1px solid var(--main-blue);
 	border-radius: 4px;
+}
+
+.title {
+	font-size: var(--font-size-500);
+	font-weight: bold;
 }
 
 @media screen and (--large-screen) {
 	.container {
 		padding: 15px 20px;
+	}
+}
+
+@media screen and (--medium-screen) {
+	.list-container {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (--small-screen) {
+	.list-container {
+		grid-template-columns: repeat(1, 1fr);
 	}
 }

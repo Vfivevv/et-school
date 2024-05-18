@@ -6,12 +6,17 @@
 	gap: 10px;
 	width: 100%;
 	padding: 10px;
-	border: 1px solid black;
+	overflow: hidden;
+	font-size: var(--font-size-200);
+	color: var(--color-text-100);
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	background-color: var(--second-blue);
+	border: 1px solid var(--main-black);
+	border-radius: 6px;
 }
 
-.button-container {
-	display: flex;
-	gap: 10px;
-	align-items: center;
-	justify-content: space-around;
+.title {
+	font-size: var(--font-size-300);
+	font-weight: bold;
 }

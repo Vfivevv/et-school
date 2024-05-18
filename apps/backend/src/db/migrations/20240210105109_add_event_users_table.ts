@@ -18,7 +18,7 @@ async function up(knex: Knex): Promise<void> {
 	await knex.schema.createTable(TABLE_NAME, (table) => {
 		table.increments(ColumnName.ID).primary();
 		table.integer(ColumnName.EVENT_ID).references("id").inTable("events");
-		table.string(ColumnName.EMAIL, EMAIL_MAXIMUM_LENGTH).unique().notNullable();
+		table.string(ColumnName.EMAIL, EMAIL_MAXIMUM_LENGTH).notNullable();
 		table.text(ColumnName.FULL_NAME).notNullable();
 		table.text(ColumnName.SOURCE).notNullable();
 		table.dateTime(ColumnName.DATE_OF_BIRTH).notNullable();
@@ -38,4 +38,3 @@ async function down(knex: Knex): Promise<void> {
 }
 
 export { down, up };
-

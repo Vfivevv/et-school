@@ -110,7 +110,10 @@ class EventService implements Service {
 	): Promise<EventResponseDto | null> {
 		const { dateOfBirth, email, fullName, source } = user;
 
-		const isEmailExist = await this.eventRepository.checkIsEmailExist(email);
+		const isEmailExist = await this.eventRepository.checkIsEmailExist(
+			email,
+			eventId,
+		);
 
 		if (isEmailExist) {
 			throw new EventError({

@@ -19,8 +19,8 @@ const MagicNumber = {
 
 const eventData = Array.from({ length: MagicNumber.LENGHT }, (_, index) => ({
 	[ColumnName.DESCRIPTION]: "This is a description for the event.",
-	[ColumnName.EVENT_DATE]: new Date(),
-	[ColumnName.ORGANIZER]: "Organizer Name",
+	[ColumnName.EVENT_DATE]: `2024-05-${MagicNumber.STEP_ONE + index}`,
+	[ColumnName.ORGANIZER]: `Organizer ${index + MagicNumber.STEP_ONE}`,
 	[ColumnName.TITLE]: `Event ${index + MagicNumber.STEP_ONE}`,
 }));
 
